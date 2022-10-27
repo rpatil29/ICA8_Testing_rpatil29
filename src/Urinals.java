@@ -13,45 +13,30 @@ import java.util.*;
  */
 public class Urinals {
 
-    public static int goodString(String str)
-    {
-        System.out.println("Not yet Implemented");
-        return -1;
-    }
-    public static void main(String[] args) {
-        System.out.println("Main Function");
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Choose: \n 1. File Input \n 2. Console(String) Input");
-        int choice = sc.nextInt();
-        ArrayList<Integer> res = new ArrayList<>(); //Result will be stored in Array list
-        if(choice==2){
-            //String input here
-            System.out.println("Enter the urinals, (-1 to print output and exit the program)");
-            String str = sc.next();
-            while(str!="-1")
-            {
-                res.add(goodString(str));
-            }
-        } else if (choice==1) {
-            //File input code here
-            System.out.println("Enter the path to file here");
-            String path = sc.next();
-            BufferedReader reader;
-            try{
-                reader = new BufferedReader(new FileReader(path));
-                String str = reader.readLine();
-                while(str!=null || str!="-1"){
-                    res.add(goodString(str));
-                    str = reader.readLine();
+    public static int goodString(String str) {
+        if (str.contains("11")) return -1;
+        if (str.equals("0")) return 1;
+        if (str.equals("1")) return 0;
+
+        char[] uri = str.toCharArray();
+        int count = 0;
+        for (int i = 0; i < uri.length - 1; i++) {
+            if (i == 0) {
+                if (uri[i] == '0' && uri[i + 1] == '0') {
+                    uri[i] = '1';
+                    count++;
                 }
             }
-            catch (Exception e) {
-                e.printStackTrace();
+            if (i > 0) {
+                if (uri[i] == '0' && uri[i - 1] == '0' && uri[i + 1] == '0') {
+                    uri[i] = '1';
+                    count++;
+                }
             }
         }
-        //Code to print Result
-        for(int i : res)
-            System.out.println(i);
-
+        if (uri[uri.length - 1] == '0' && uri[uri.length - 2] == '0') {
+            count++;
+        }
+        return count;
     }
 }
