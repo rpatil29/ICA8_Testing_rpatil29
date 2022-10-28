@@ -1,8 +1,4 @@
 package ICA8_Testing_rpatil29.src;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.*;
 
 /**
  * SER-515 ICA8 Urinals class
