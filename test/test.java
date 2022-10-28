@@ -14,6 +14,14 @@ class test {
 		assertEquals(2, Urinals.goodString("000"));
 		
 		assertEquals(1, Urinals.goodString("10001"));
+		
+		assertAll(() -> assertEquals(3, Urinals.goodString("00000")));
+		
+		assertEquals(2, Urinals.goodString("101")); // Failure
+		
+		assertEquals(-1, Urinals.goodString("1"));
+		
+		assertEquals(-1, Urinals.goodString("0")); //Failure
 	}
 
 }
