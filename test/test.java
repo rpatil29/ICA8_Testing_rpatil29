@@ -12,6 +12,8 @@ class test {
 	void testGoodString() {
 		System.out.println("+++++++++ Rushikesh Patil == Test Cases Below ++++++++++++++++");
 		assertEquals(2, Urinals.goodString("000"));
+		
+		assertEquals(1, Urinals.goodString("10001"));
 	}
 
 }
